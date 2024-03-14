@@ -14,8 +14,7 @@ def get_details(poke_number):
 		pokemon = response.json()
 		return (pokemon['name'], pokemon['height'], pokemon['weight'], len(pokemon['moves']),
 		                pokemon['sprites']['other']['official-artwork']['front_default'], 
-						pokemon['cries']['latest'],
-						pokemon['types']['type']['name'])
+						pokemon['cries']['latest'])
 	except:
 		return 'Error', np.NAN, np.NAN, np.NAN
 	
@@ -28,7 +27,7 @@ pokemon_number = st.slider("Pick a pokemon",
 
 
 
-d = {'name': [get_details(pokemon_number)[0]], 'height': [get_details(pokemon_number)[1]], 'weight': [get_details(pokemon_number)[2]], 'moves': [get_details(pokemon_number)[3]], 'types': [get_details(pokemon_number)[6]]}
+d = {'name': [get_details(pokemon_number)[0]], 'height': [get_details(pokemon_number)[1]], 'weight': [get_details(pokemon_number)[2]], 'moves': [get_details(pokemon_number)[3]]}
 
 df = pd.DataFrame(d)
 
